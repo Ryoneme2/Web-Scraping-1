@@ -9,7 +9,7 @@ def beautify(url):
     lstData = []
     lstDate = []
     lstLink = []
-    
+
     if res.status_code == 200:
       # ถ้ามีข้อมูลให้เก็บลง list
         soup = BeautifulSoup(res.text, 'html.parser')
@@ -54,6 +54,9 @@ def readPage(url):
         # ถาม users ว่าจะทำการอ่านต่อหรือไม่
         inp = str(input("View next page? (y/n) : "))
         if inp.lower() == 'y':
+            if pageIndex >= 12:
+                print("End of page")
+                pageIndex = 0
             pageIndex += 1
         elif inp.lower() == 'n':
             return
