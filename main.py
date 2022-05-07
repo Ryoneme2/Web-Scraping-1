@@ -16,7 +16,7 @@ def beautify(url):
         for link in soup.find_all('span', {"class": "field--type-string"}):
             lstData.append(link.text)
         for link in soup.find_all('a', {"rel": 'bookmark'}):
-            lstLink.append("https://www.kmitl.ac.th/"+link['href'])
+            lstLink.append("https://www.kmitl.ac.th"+link['href'])
         for link in soup.find_all('em'):
             text = link.text
             lstDate.append(text.strip())
