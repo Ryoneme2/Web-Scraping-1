@@ -69,22 +69,25 @@ def readByKeyword(url,keyword):
     data = beautify(url+str(keyword))
     displayInfo(data)
 
+def main():
+    url = 'https://www.kmitl.ac.th/content/all?cat=All&keywords='
+    isExit = False
 
-url = 'https://www.kmitl.ac.th/content/all?cat=All&keywords='
-isExit = False
+    while not isExit:
+        print("1. Read by keyword")
+        print("2. Read by page")
+        print("3. Exit")
+        inp = str(input("Enter choice : "))
 
-while not isExit:
-    print("1. Read by keyword")
-    print("2. Read by page")
-    print("3. Exit")
-    inp = str(input("Enter choice : "))
+        if inp == '1':
+            keyword = str(input("Enter keyword : "))
+            readByKeyword(url,keyword)
+        elif inp == '2':
+            readPage(url)
+        elif inp == '3':
+            isExit = True
+        else:
+            print("Invalid input")
 
-    if inp == '1':
-        keyword = str(input("Enter keyword : "))
-        readByKeyword(url,keyword)
-    elif inp == '2':
-        readPage(url)
-    elif inp == '3':
-        isExit = True
-    else:
-        print("Invalid input")
+if __name__ == '__main__':
+    main()
